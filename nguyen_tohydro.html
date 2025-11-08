@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Nguyên tố Hydro</title>
+    <style>
+        /* Nền gradient đẹp */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+            margin: 0;
+            padding: 0;
+            color: #222;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #ff4d6d;
+            text-align: center;
+            font-size: 3em;
+            text-shadow: 2px 2px #ffe0e0;
+        }
+
+        h2 {
+            color: #1e90ff;
+            margin-top: 25px;
+        }
+
+        p, li {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        ul {
+            margin-left: 20px;
+        }
+
+        button {
+            margin: 10px 5px;
+            padding: 12px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .reaction {
+            background: #f0f8ff;
+            border-left: 5px solid #1e90ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Nguyên tố Hydro (Hydrogen)</h1>
+
+        <p><strong>Nguyên tử số:</strong> 1</p>
+        <p><strong>Nguyên tử khối:</strong> 1.008</p>
+        <p><strong>Nhóm:</strong> 1</p>
+        <p><strong>Tính chất:</strong> không màu, không mùi, dễ cháy</p>
+
+        <h2>Ứng dụng của Hydro</h2>
+        <ul>
+            <li>Sản xuất ammonia (phân bón)</li>
+            <li>Nhiên liệu trong pin nhiên liệu và động cơ đốt trong</li>
+            <li>Công nghiệp hóa chất</li>
+        </ul>
+
+        <h2>Một số phương trình phản ứng</h2>
+        <div class="reaction">2H₂ + O₂ → 2H₂O</div>
+        <div class="reaction">H₂ + Cl₂ → 2HCl</div>
+        <div class="reaction">2Na + H₂ → 2NaH</div>
+
+        <h2>Phát âm</h2>
+        <button onclick="speak('en-GB')">Phát âm Anh Anh</button>
+        <button onclick="speak('en-US')">Phát âm Anh Mỹ</button>
+    </div>
+
+    <script>
+        function speak(voiceLang) {
+            const msg = new SpeechSynthesisUtterance("Hydrogen");
+            const voices = window.speechSynthesis.getVoices();
+            msg.voice = voices.find(v => v.lang === voiceLang) || voices[0];
+            msg.rate = 1;
+            window.speechSynthesis.speak(msg);
+        }
+        window.speechSynthesis.onvoiceschanged = () => {};
+    </script>
+</body>
+</html>
